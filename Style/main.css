@@ -53,7 +53,7 @@ body {
 
 .menu-items:hover {
     border-bottom: 2px solid rgb(0, 0, 0);
-    transform: translateY(-8px);
+    /* transform: translateY(-8px); */
     transition: .5s;
 }
 
