@@ -22,12 +22,14 @@ const handleSubmit = (e) => {
         price :  document.getElementById("price").value, 
         category :  document.getElementById("category").value, 
         img :  document.getElementById("img").value, 
-
+        id : Date.now()
+        
     };
+
     products.push(product);
     localStorage.setItem("products", JSON.stringify(products));
     alert("add product successfull ")
-     
+ 
 };
 
 document.getElementById("productdata").addEventListener("submit", handleSubmit);
