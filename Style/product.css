@@ -47,9 +47,9 @@ body {
   }
   
   /* Product box styling */
-  .product-grid div {
+  .product-grid .main-div {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 30px 10px;
     border-radius: 8px;
     background-color: white;
     text-align: center;
@@ -57,7 +57,7 @@ body {
     transition: transform 0.3s ease;
   }
   
-  .product-grid div:hover {
+  .product-grid .main-div:hover {
     transform: translateY(-10px);
   }
   
@@ -78,22 +78,29 @@ body {
   .product-grid p {
     color: #555;
   }
-  
+  .group-Btn{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    flex-direction: row;
+  }
   /* Buy Button Styling */
-  .buy-btn {
+  .cart-btn, .buy-btn {
     display: inline-block;
     padding: 10px 20px;
     background-color: #e74c3c;
     color: white;
+    
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
     transition: background-color 0.3s ease;
-  }
-  
-  .buy-btn:hover {
-    background-color: #c0392b;
+    &:hover {
+      background-color: #c0392b;
+      transform: translateY(-5px);
+    }
+    
   }
   
   /* Responsive grid */
@@ -109,3 +116,22 @@ body {
     }
   }
   
+
+.product-para{
+  text-align: center;
+  margin-top: 10%;
+  font-weight: bold;
+  font-size: 24px;
+  
+  
+}
+.msg{
+  text-align: center;
+  margin-top: 10%;
+  font-weight: bold;
+  font-size: 18px;
+  color: red;
+}
+.Btnn button{ 
+  padding: 10px 20px;
+}

@@ -10,26 +10,43 @@ const mapper = (data) => {
     document.getElementById("productlist").innerHTML = "";
 
     if (data.length === 0) {
-        document.getElementById("productlist").innerHTML = "No products available";
-        return;
+        document.getElementById("product").innerHTML = ""; 
+        product.innerHTML = `
+        <div class="msg">
+        <p class="product-para">No products available at the moment. Please check back later!</p>
+        <a class="Btnn" href="../Pages/addproduct.html"><button>ADD PRODUCT FIRST!</button></a>
+        </div>
+        `;
     }
 
     data.map((ele) => {
         let title = createTag("h3", ele.title);
+        
         let price = createTag("p", `$${ele.price}`);
         let img = createTag("img", ele.img);
-        let category = createTag("p", ele.category);
+        let category = createTag("p", ele.category); 
+ let groupBtn= document.createElement("div");
+ groupBtn.className="group-Btn"
+        let Buybtn = document.createElement("button");
+        Buybtn.innerText = "BUY";
+        Buybtn.classList.add("buy-btn");
+        Buybtn.addEventListener("click", () =>  
+            alert(`You have selected to buy ${ele.title} for ${ele.price}.`)
+        );
 
-        let buyButton = document.createElement("button");
-        buyButton.innerText = "Add to Cart";
-        buyButton.classList.add("buy-btn");
+        let cartBtn = document.createElement("button");
+        cartBtn.innerText = "Add to Cart";
+        cartBtn.classList.add("cart-btn");
 
-        buyButton.addEventListener("click", () => handleCart(ele));
+        cartBtn.addEventListener("click", () => handleCart(ele));
 
+        groupBtn.append(Buybtn, cartBtn);
         let div = document.createElement("div");
+        div.className="main-div"
         div.classList.add("product-box");
-        div.append(img, title, price, category, buyButton);
+        div.append(img, title, price, category,groupBtn);
         document.getElementById("productlist").append(div);
+
 
     });
 }
@@ -66,6 +83,8 @@ const handleCategory = (category) => {
 
 document.getElementById("men").addEventListener("click", () => handleCategory("men"));
 document.getElementById("women").addEventListener("click", () => handleCategory("women"));
+
+document.getElementById("kids").addEventListener("click", () => handleCategory("kids"));
 document.getElementById("electronics").addEventListener("click", () => handleCategory("electronics"));
 
 // searching
