@@ -1,10 +1,16 @@
-/* Basic reset */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif; /* Use a modern font */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
+
+body {  
+    padding: 20px;
+}
+
 
 /* First line */
 #label {
@@ -183,3 +189,28 @@ margin-top: 20px;
         margin: 5px 0;
     }
 }
+
+
+
+.product-para{
+    text-align: center;
+    margin-top: 10%;
+    font-weight: bold;
+    font-size: 24px;
+    
+    
+  }
+  .msg{
+    text-align: center;
+    margin-top: 10%;
+    font-weight: bold;
+    font-size: 18px;
+    color: red;
+  }
+  .Btnn button{ 
+    margin-top: 30px;
+    padding: 10px 20px;
+      background-color: black;
+      color: white;
+      border-radius: 20px;
+  } 

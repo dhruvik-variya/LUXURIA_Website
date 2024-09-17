@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../Style/main.css" />
     <!-- product css -->
     <link rel="stylesheet" href="../Style/product.css" />
+    <!-- fa-cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
   <body>
@@ -16,21 +18,32 @@
     </div>
 
     <!-- searching -->
-    
-    <form id="searching">
-      <input type="search" id="search" placeholder="Search..." />
-    </form>
-    
-    <!-- filtering -->
+    <div class="searchBtns">
+      <form id="searching">
+        <input type="search" id="search" placeholder="Search..." />
+        <i class="fas fa-search search-Icon"></i>
+      </form>
+    </div>
 
-    <div id="filters">
-      <button id="lth">LTH</button>
-      <button id="htl">HTL</button>
+    <!-- dropdown -->
+    <select id="sortDropdown">
+      <option value="" selected disabled>sort by..</option>
+      <option value="lth">low to high</option>
+      <option value="htl">high to low</option>
+    </select>
+
+    <!-- filtering -->
+    <div id="filters"> 
       <button id="men">Men</button>
       <button id="women">Women</button>
       <button id="kids">Kids</button>
       <button id="electronics">Electronics</button>
     </div>
+    
+ 
+   
+
+    
     
     <h1>Products</h1>
     <div id="product"></div>

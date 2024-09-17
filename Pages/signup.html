@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../Style/main.css">
     <!-- signup css -->
      <link rel="stylesheet" href="../Style/signup.css">
+      <!-- fa-cdn -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
 
 </head>
@@ -20,7 +22,7 @@
     </div>
 
 
-    <form id="form">
+    <!-- <form id="form">
         <div>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
@@ -33,7 +35,49 @@
 
             <input type="submit" value="Submit" id="submitBtn">
         </div>
-    </form>
+    </form> -->
+
+
+
+    <div class="contain">
+        <div class="cover">
+          <div class="front">
+            <!-- right img -->
+            <img src="../img/signup.jpg" alt="">
+            <div class="text">
+            </div>
+          </div>
+          
+        </div>
+        <div class="forms">
+            <div class="form-content">
+              
+            <div class="signup-form">
+              <div class="title">Signup</div>
+            <form action="#" id="form">
+                <div class="input-boxes">
+                  <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                  </div>
+                  <div class="input-box">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" id="email" placeholder="Enter your email" required>
+                  </div>
+                  <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                  </div>
+                  <div class="button input-box">
+                    <input type="submit" value="Sumbit">
+                  </div>
+                  <div class="text sign-up-text">Don't have an account? <a href="./login.html"><label >Login now</label></a></div>
+                </div>
+          </form>
+        </div>
+        </div>
+        </div>
+      </div>
     
 </body>
 

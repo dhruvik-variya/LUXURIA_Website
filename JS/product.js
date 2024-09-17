@@ -1,5 +1,5 @@
-import Navbar from "../Component/navbar.js"; 
-import createTag from "../Component/helper.js"; 
+import Navbar from "../Component/navbar.js";
+import createTag from "../Component/helper.js";
 
 document.getElementById("navbar").innerHTML = Navbar();
 
@@ -7,131 +7,126 @@ let products = JSON.parse(localStorage.getItem("products")) || [];
 console.log(products);
 
 const mapper = (data) => {
-    document.getElementById("productlist").innerHTML = "";
+  document.getElementById("productlist").innerHTML = "";
 
-    if (data.length === 0) {
-        document.getElementById("product").innerHTML = ""; 
-        product.innerHTML = `
+  if (data.length === 0) {
+    document.getElementById("product").innerHTML = "";
+    product.innerHTML = `
         <div class="msg">
         <p class="product-para">No products available at the moment. Please check back later!</p>
+        <p>Please first Add Some Product first.</p>
         <a class="Btnn" href="../Pages/addproduct.html"><button>ADD PRODUCT FIRST!</button></a>
         </div>
         `;
-    }
+  }
 
-    data.map((ele) => {
-        let title = createTag("h3", ele.title);
-        
-        let price = createTag("p", `$${ele.price}`);
-        let img = createTag("img", ele.img);
-        let category = createTag("p", ele.category); 
- let groupBtn= document.createElement("div");
- groupBtn.className="group-Btn"
-        let Buybtn = document.createElement("button");
-        Buybtn.innerText = "BUY";
-        Buybtn.classList.add("buy-btn");
-        Buybtn.addEventListener("click", () =>  
-            alert(`You have selected to buy ${ele.title} for ${ele.price}.`)
-        );
+  data.map((ele) => {
+    let title = createTag("h3", ele.title);
 
-        let cartBtn = document.createElement("button");
-        cartBtn.innerText = "Add to Cart";
-        cartBtn.classList.add("cart-btn");
+    let price = createTag("p", `$${ele.price}`);
+    let img = createTag("img", ele.img);
+    let category = createTag("p", ele.category);
+    let groupBtn = document.createElement("div");
+    groupBtn.className = "group-Btn";
+    let Buybtn = document.createElement("button");
+    Buybtn.innerText = "BUY";
+    Buybtn.classList.add("buy-btn");
+    Buybtn.addEventListener("click", () =>
+      alert(`You have selected to buy ${ele.title} for ${ele.price}.`)
+    );
 
-        cartBtn.addEventListener("click", () => handleCart(ele));
+    let cartBtn = document.createElement("button");
+    cartBtn.innerText = "Add to Cart";
+    cartBtn.classList.add("cart-btn");
 
-        groupBtn.append(Buybtn, cartBtn);
-        let div = document.createElement("div");
-        div.className="main-div"
-        div.classList.add("product-box");
-        div.append(img, title, price, category,groupBtn);
-        document.getElementById("productlist").append(div);
+    cartBtn.addEventListener("click", () => handleCart(ele));
 
-
-    });
-}
+    groupBtn.append(Buybtn, cartBtn);
+    let div = document.createElement("div");
+    div.className = "main-div";
+    div.classList.add("product-box");
+    div.append(img, title, price, category, groupBtn);
+    document.getElementById("productlist").append(div);
+  });
+};
 
 mapper(products);
 
-// sorting 
+// sorting
 
-const handleSort = (orderBy) =>{
-    if(orderBy == "lth"){
-        let temp = products.sort((a, b) => a.price - b.price);
+const handleSort = (orderBy) => {
+  if (orderBy === "lth") {
+    let temp = products.sort((a, b) => a.price - b.price);
+    mapper(temp);
+  } else if (orderBy === "htl") {
+    let temp = products.sort((a, b) => b.price - a.price);
+    mapper(temp);
+  }
+};
 
-        mapper(temp);
-    }
-    else{
-        let temp = products.sort((a, b) => b.price - a.price);
-        
-        mapper(temp); 
-    }
-}
-
-
-document.getElementById("lth").addEventListener("click", () =>handleSort("lth"));
-document.getElementById("htl").addEventListener("click", () =>handleSort("htl"));
-
+document.getElementById("sortDropdown").addEventListener("change", (event) => {
+  handleSort(event.target.value);
+});
 
 // filtering
 
 const handleCategory = (category) => {
-    let temp = products.filter((ele) => ele.category == category);
-    mapper(temp);
-}
+  let temp = products.filter((ele) => ele.category == category);
+  mapper(temp);
+};
 
+document
+  .getElementById("men")
+  .addEventListener("click", () => handleCategory("men"));
+document
+  .getElementById("women")
+  .addEventListener("click", () => handleCategory("women"));
 
-document.getElementById("men").addEventListener("click", () => handleCategory("men"));
-document.getElementById("women").addEventListener("click", () => handleCategory("women"));
-
-document.getElementById("kids").addEventListener("click", () => handleCategory("kids"));
-document.getElementById("electronics").addEventListener("click", () => handleCategory("electronics"));
+document
+  .getElementById("kids")
+  .addEventListener("click", () => handleCategory("kids"));
+document
+  .getElementById("electronics")
+  .addEventListener("click", () => handleCategory("electronics"));
 
 // searching
 
 const handleSearch = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    let searchInput = document.getElementById("search").value;
+  let searchInput = document.getElementById("search").value;
 
-    let temp = products.filter((ele) => ele.title.toLowerCase().includes(searchInput.toLowerCase()));
-    
-    mapper(temp);
-}
+  let temp = products.filter((ele) =>
+    ele.title.toLowerCase().includes(searchInput.toLowerCase())
+  );
+
+  mapper(temp);
+};
 
 document.getElementById("searching").addEventListener("submit", handleSearch);
 
+// cart
 
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// cart  
-
-let cart =  JSON.parse(localStorage.getItem("cart"))||[]
-
-const isExist = (id) => { 
-
-    let flag = false;
-    cart.map((ele, i) => {
-
-        if (ele.id == id) {
-
-            cart[i].qty = cart[i].qty + 1
-            flag = true;
-            alert("Quantity added Successfully!")
-
-        }
-    })
-    return flag;
-
-}
-
+const isExist = (id) => {
+  let flag = false;
+  cart.map((ele, i) => {
+    if (ele.id == id) {
+      cart[i].qty = cart[i].qty + 1;
+      flag = true;
+      alert("Quantity added Successfully!");
+    }
+  });
+  return flag;
+};
 
 const handleCart = (ele) => {
-    if (!isExist(ele.id)) {
-        cart.push({ ...ele, qty: 1 });
-        alert("added to cart");
-    }
+  if (!isExist(ele.id)) {
+    cart.push({ ...ele, qty: 1 });
+    alert("added to cart");
+  }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    console.log(cart);
-
-}
+  localStorage.setItem("cart", JSON.stringify(cart));
+  console.log(cart);
+};

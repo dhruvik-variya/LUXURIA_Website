@@ -1,6 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-  body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+ 
+ 
+ body {
     background-color: #FEF9D9;
+    padding: 20px;
   }
   /* Form container */
   form {
@@ -8,7 +18,7 @@
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     padding: 40px 30px;
-    width: 350px;
+    width: 400px;
     display: flex;
     flex-direction: column;
     margin: auto; 
@@ -44,7 +54,6 @@
   form select {
     width: 100%;
     padding: 12px;
-    margin-bottom: 20px;
     font-size: 14px;
     border: 2px solid #ddd;
     border-radius: 8px;

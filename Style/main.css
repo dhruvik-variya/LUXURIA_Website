@@ -1,12 +1,17 @@
-*{
-    margin: 0;
-    padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    color: #000;
+body {  
+    padding: 20px;
 }
+ 
+
 
 .container {
     display: flex;
@@ -60,18 +65,16 @@ body {
 
 .menu-items:hover {
     border-bottom: 2px solid rgb(0, 0, 0);
-    /* transform: translateY(-8px); */
     transition: .5s;
-}
-
-.logo {
-    margin-right: 20px;
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
 }
 
 .logo a {
     text-decoration: none;
+    color: #000;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-size: 30px;
+    cursor: pointer;
+    font-weight: bold;
 }
 

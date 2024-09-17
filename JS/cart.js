@@ -3,6 +3,10 @@ import Navbar from "../Component/navbar.js";
 
 document.getElementById("navbar").innerHTML = Navbar();
 
+
+
+
+
 // remove item from cart
 const handleremove = (index) => {
   cart.splice(index, 1);
@@ -27,13 +31,32 @@ const handleQty = (option, index) => {
 };
 
 // display cart items
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-// let user = JSON.parse(localStorage.getItem("user")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || []; 
+
 
 
 const mapper = (cart) => {
   document.getElementById("cartlist").innerHTML = "";
   document.getElementById("totalbox").innerHTML = ""; // Clear the totalbox before appending new content
+
+  // empty div blank
+  document.getElementById("empty").innerHTML = "";
+  if(cart.length == 0){
+     empty.innerHTML = `
+     <div class="msg">
+     <p class="product-para">Cart is empty. Add some products to checkout!</p>
+     <a class="Btnn" href="../Pages/product.html"><button>SHOP NOW!</button></a>
+     </div>
+     `
+  }
+
+  
+
+  
+
+ else{
+
+  // cart box lable
 
   let label = createTag("label", "");
   label.className = "label-list";
@@ -49,10 +72,11 @@ const mapper = (cart) => {
 
   document.getElementById("cartlist").append(label);
 
+
   // summry variables
-   let totalqty=0;
-  let subTotal = 0;  
-  const gstRate = 0.18;  
+  let totalqty = 0;
+  let subTotal = 0;
+  const gstRate = 0.18;
 
   cart.map((ele, index) => {
     let div = createTag("div", "");
@@ -86,44 +110,57 @@ const mapper = (cart) => {
     div.append(img, title, price, div1, category, total, remove);
     document.getElementById("cartlist").append(div);
 
-    subTotal += ele.qty * ele.price; 
+    subTotal += ele.qty * ele.price;
     totalqty += ele.qty;
   });
+ 
 
   // Calculate GST once after looping through the cart
   let totalGst = gstRate * subTotal;
-let totalAmount=subTotal+totalGst;
+  let totalAmount = subTotal + totalGst;
+
   // Display the subtotal and GST after mapping all cart items
   let summaryDiv = createTag("div", "");
   summaryDiv.className = "summary";
+
   let summary = createTag("h3", "Summary");
-  summary.className="order-summary"
-  // let username = user.name ? createTag("span", `User: ${user.name}`) : createTag("span", "User: Guest");
-  let summaryqty= createTag("p",`totalqty:${totalqty}`)
+  summary.className = "order-summary"; 
+
+  let summaryqty = createTag("p", `totalqty:${totalqty}`);
+
   let subtotal = createTag("p", `Subtotal: $${subTotal.toFixed(2)}`);
+
   let gst = createTag("p", `GST: $${totalGst.toFixed(2)}`);
-  let totalamount = createTag("p", `totalamount:$${totalAmount.toFixed(2)}`)
+
+  let totalamount = createTag("p", `totalamount:$${totalAmount.toFixed(2)}`);
+
+  // promo code
   let promoCodeLabel = createTag("label", "Promo Code");
-promoCodeLabel.setAttribute("for", "promoCodeInput");
-promoCodeLabel.className = "promo-code-label";
+  promoCodeLabel.setAttribute("for", "promoCodeInput");
+  promoCodeLabel.className = "promo-code-label";
+
   let promoCodeInput = createTag("input", "");
   promoCodeInput.type = "text";
   promoCodeInput.className = "promo-code-input";
   promoCodeInput.id = "promoCodeInput";
   promoCodeInput.placeholder = "Enter Promo Code";
-  
+
   // Create a submit button for the promo code
   let promoSubmitBtn = createTag("button", "Apply");
   promoSubmitBtn.className = "promo-submit-btn";
-  
-let checkoutbtn=createTag("button","Checkout");
-checkoutbtn.addEventListener("click",() =>{
-  localStorage.removeItem("cart");
-  window.location.href="/index.html";
-})
 
-  summaryDiv.append(summary, summaryqty,subtotal, gst,totalamount, promoCodeLabel,promoCodeInput,promoSubmitBtn,checkoutbtn);
+  let checkoutbtn = createTag("button", "Checkout");
+  checkoutbtn.addEventListener("click", () => {
+    localStorage.removeItem("cart");
+    window.location.href = "/index.html";
+  });
+
+  summaryDiv.append(summary,summaryqty,subtotal,gst,totalamount,promoCodeLabel,promoCodeInput,promoSubmitBtn,checkoutbtn);
   document.getElementById("totalbox").append(summaryDiv);
+
+}
 };
+
+
 
 mapper(cart);
