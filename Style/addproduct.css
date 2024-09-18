@@ -10,11 +10,12 @@
  
  body {
     background-color: #FEF9D9;
-    padding: 20px;
-  }
-  /* Form container */
+    padding: 20px; 
+    background: #EAC7CC;
+  } 
+
   form {
-    background-color: #ffffff;
+    background-color: #f4e5ec;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     padding: 40px 30px;
@@ -37,7 +38,7 @@
     }
   }
   
-  /* Form labels */
+   
   form label {
     font-size: 14px;
     font-weight: bold;
@@ -46,7 +47,7 @@
     display: inline-block;
   }
   
-  /* Input fields */
+   
   form input[type="text"],
   form input[type="number"],
   form input[type="url"],
@@ -70,7 +71,7 @@
     box-shadow: 0px 0px 8px rgba(52, 152, 219, 0.5);
   }
   
-  /* Dropdown select styling */
+ 
   form select {
     background-color: #ecf0f1;
     font-size: 14px;
@@ -78,30 +79,27 @@
     border-radius: 8px;
   }
   
-  /* Submit button */
+   
   form input[type="submit"] {
-    background-color: #27ae60;
+    background-color: #ff5e57;
     color: white;
-    padding: 12px 15px;
     font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
     border: none;
-    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: #ff5e57;
+    }
+    
   }
-  
-  form input[type="submit"]:hover {
-    background-color: #219150;
-    box-shadow: 0 5px 10px rgba(39, 174, 96, 0.4);
-  }
-  
-  /* Placeholder colors */
+   
   form input::placeholder {
     color: #95a5a6;
     opacity: 0.8;
-  }
-  
-  /* Adding subtle form animations */
+  } 
+
   form input[type="text"],
   form input[type="number"],
   form input[type="url"],
@@ -119,8 +117,7 @@
       transform: translateY(0);
     }
   }
-  
-  /* Form responsiveness */
+   
   @media (max-width: 480px) {
     form {
       width: 90%;
@@ -128,3 +125,7 @@
     }
   }
   
+
+  .addFooter{
+    margin-top: 20px;
+  }

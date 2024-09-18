@@ -1,6 +1,10 @@
 import Navbar from "../Component/navbar.js";
+import footer from "../Component/footer.js";
+
 
 document.getElementById("navbar").innerHTML = Navbar();
+document.getElementById("Footer").innerHTML = footer();
+
 
 let user = JSON.parse(localStorage.getItem("user")) || [];
 
@@ -39,7 +43,6 @@ const handledata = (e) => {
 };
 
 // logout
-
 const logout = document.getElementById("userlogout");
 
 if(logout){
@@ -53,8 +56,4 @@ else{
     console.log("logout button not found");
 }
 
-
 document.querySelector("#form").addEventListener("submit", handledata);
-
-
-// form js

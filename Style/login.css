@@ -11,16 +11,34 @@ body {
 }
 
 .contain {
+  
   align-items: center;
   justify-content: center;
   margin: auto;
   position: relative;
+  top: 30px;
   max-width: 850px;
   width: 100%;
   background: #fff;
   padding: 40px 30px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  perspective: 2700px;
+  animation: slide-down 0.6s ease-in-out;
+  
+}
+
+.Login_footer{
+  margin-top: 16%;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .contain .cover {
@@ -78,7 +96,7 @@ body {
   height: 100%;
   width: 100%;
   opacity: 0.5;
-  background: #7d2ae8;
+  background: #d74e63;
 }
 
 .cover .text .text-1,
@@ -126,7 +144,7 @@ body {
   bottom: 0;
   height: 3px;
   width: 25px;
-  background: #7d2ae8;
+  background: #a77ac7;
 }
 
 .forms .signup-form .title:before {
@@ -160,12 +178,12 @@ body {
 
 .form-content .input-box input:focus,
 .form-content .input-box input:valid {
-  border-color: #7d2ae8;
+  border-color: #a77ac7;
 }
 
 .form-content .input-box i {
   position: absolute;
-  color: #7d2ae8;
+  color: #a77ac7;
   font-size: 17px;
 }
 
@@ -190,7 +208,7 @@ body {
 
 .forms .form-content .button input {
   color: #fff;
-  background: #7d2ae8;
+  background: #a77ac7;
   border-radius: 6px;
   padding: 0;
   cursor: pointer;
@@ -198,11 +216,11 @@ body {
 }
 
 .forms .form-content .button input:hover {
-  background: #5b13b9;
+  background: #a77ac7;
 }
 
 .forms .form-content label {
-  color: #5b13b9;
+  color: #a77ac7;
   cursor: pointer;
 }
 

@@ -1,7 +1,11 @@
 import Navbar from "../Component/navbar.js";
 import createTag from "../Component/helper.js";
+import footer from "../Component/footer.js";
+
 
 document.getElementById("navbar").innerHTML = Navbar();
+document.getElementById("Footer").innerHTML = footer();
+
 
 let products = JSON.parse(localStorage.getItem("products")) || [];
 console.log(products);
@@ -13,6 +17,8 @@ const mapper = (data) => {
     document.getElementById("product").innerHTML = "";
     product.innerHTML = `
         <div class="msg">
+            <img src="../img/product-is-empty-removebg-preview.png" alt="img" class="empty-img">
+
         <p class="product-para">No products available at the moment. Please check back later!</p>
         <p>Please first Add Some Product first.</p>
         <a class="Btnn" href="../Pages/addproduct.html"><button>ADD PRODUCT FIRST!</button></a>
@@ -42,9 +48,11 @@ const mapper = (data) => {
     cartBtn.addEventListener("click", () => handleCart(ele));
 
     groupBtn.append(Buybtn, cartBtn);
+
     let div = document.createElement("div");
     div.className = "main-div";
     div.classList.add("product-box");
+    
     div.append(img, title, price, category, groupBtn);
     document.getElementById("productlist").append(div);
   });
@@ -85,9 +93,9 @@ document
 document
   .getElementById("kids")
   .addEventListener("click", () => handleCategory("kids"));
-document
-  .getElementById("electronics")
-  .addEventListener("click", () => handleCategory("electronics"));
+// document
+//   .getElementById("electronics")
+//   .addEventListener("click", () => handleCategory("electronics"));
 
 // searching
 
@@ -105,8 +113,8 @@ const handleSearch = (e) => {
 
 document.getElementById("searching").addEventListener("submit", handleSearch);
 
-// cart
 
+// cart
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const isExist = (id) => {

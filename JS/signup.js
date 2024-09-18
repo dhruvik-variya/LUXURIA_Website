@@ -1,6 +1,10 @@
 import Navbar from "../Component/navbar.js";
+import footer from "../Component/footer.js";
+
 
 document.getElementById("navbar").innerHTML = Navbar();
+document.getElementById("Footer").innerHTML = footer();
+
 
 
 let user = JSON.parse(localStorage.getItem("user")) || [];
