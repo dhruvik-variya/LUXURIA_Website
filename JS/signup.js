@@ -27,3 +27,18 @@ const  handledata = (e) => {
       
 }
 document.querySelector("#form").addEventListener("submit", handledata);
+
+ 
+ // logout
+const logout = document.getElementById("userSignup");
+
+if(logout) {
+    logout.addEventListener("click", () => {
+        localStorage.removeItem("username");
+        localStorage.removeItem("login");
+        window.location.href = "/index.html";
+    });
+}
+else{
+    console.log("logout button not found");
+}

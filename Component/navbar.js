@@ -15,7 +15,7 @@ const Navbar = () => {
         <li class="link"><a href="../Pages/product.html">Shop</a></li>
         <li class="link"><a href="../Pages/addproduct.html">Add Product</a></li>
         <li class="link"><a href="../Pages/login.html" id="userlogout"> ${login ? "Logout" : "Login"} </a></li>
-        <li class="link"><a href="../Pages/signup.html"> ${login ? username.substring(0,8)+"" : "SignUp"} </a></li>
+        <li class="link"><a href="../Pages/signup.html" id="userSignup"> ${login ? username.substring(0,8)+"" : "SignUp"} </a></li>
       </ul>
 
       <div class="nav__icons">

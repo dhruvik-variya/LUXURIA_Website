@@ -60,14 +60,14 @@ const mapper = (cart) => {
   let label = createTag("label", "");
   label.className = "label-list";
 
-  let labelproduct = createTag("h4", "product");
+  let labelproduct = createTag("h4", "Product");
   
-  let labeltitle = createTag("h4", "title");
-  let labelprice = createTag("h4", "price");
-  let labelqty = createTag("h4", "qty");
-  let labelcategory = createTag("h4", "category");
-  let labeltotal = createTag("h4", "total");
-  let labelremove = createTag("h4", "remove");
+  let labeltitle = createTag("h4", "Title");
+  let labelprice = createTag("h4", "Price");
+  let labelqty = createTag("h4", "Quantity");
+  let labelcategory = createTag("h4", "Category");
+  let labeltotal = createTag("h4", "Total");
+  let labelremove = createTag("h4", "Remove");
   label.append(labelproduct,labeltitle,labelprice,labelqty,labelcategory,labeltotal,labelremove);
 
   document.getElementById("cartlist").append(label);
@@ -126,13 +126,13 @@ const mapper = (cart) => {
   let summary = createTag("h3", "Summary");
   summary.className = "order-summary"; 
 
-  let summaryqty = createTag("p", `totalqty: <span class="sub-span">${totalqty}</span>`);
+  let summaryqty = createTag("h4", `Total Quantity: <span class="sub-span">${totalqty}</span>`);
 
-  let subtotal = createTag("p", `Subtotal: <span class="sub-span">$${subTotal.toFixed(2)}</span>`);
+  let subtotal = createTag("h4", `Sub Total: <span class="sub-span">$${subTotal.toFixed(2)}</span>`);
 
-  let gst = createTag("p", `GST: <span class="sub-span">$${totalGst.toFixed(2)}</span>`);
+  let gst = createTag("h4", `GST: <span class="sub-span">$${totalGst.toFixed(2)}</span>`);
 
-  let totalamount = createTag("p", `totalamount:<span class="sub-span">$${totalAmount.toFixed(2)}</span>`);
+  let totalamount = createTag("h4", `Total Amount:<span class="sub-span">$${totalAmount.toFixed(2)}</span>`);
 
   // promo code
   let promoCodeLabel = createTag("label", "Promo Code :");

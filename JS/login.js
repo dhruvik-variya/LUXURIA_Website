@@ -45,7 +45,7 @@ const handledata = (e) => {
 // logout
 const logout = document.getElementById("userlogout");
 
-if(logout){
+if(logout) {
     logout.addEventListener("click", () => {
         localStorage.removeItem("username");
         localStorage.removeItem("login");

@@ -204,7 +204,7 @@ margin-top: 20px;
     margin-top: 14%;
   }
   .sub-span{
-    margin-left: 15px;
+    margin-left: 10px;
   }
 
   .promo-submit-btn{
@@ -222,6 +222,7 @@ margin-top: 20px;
   }
 
   .promo-code-input{
+    margin-top: 5px;
     padding:  5px 8px;
     border-radius: 5px;
   }

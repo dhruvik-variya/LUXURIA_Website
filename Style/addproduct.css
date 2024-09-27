@@ -19,7 +19,7 @@
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     padding: 40px 30px;
-    width: 400px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     margin: auto; 
@@ -99,6 +99,11 @@
     color: #95a5a6;
     opacity: 0.8;
   } 
+
+  .dv{
+    text-align: center;
+    padding: 15px;
+  }
 
   form input[type="text"],
   form input[type="number"],
