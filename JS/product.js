@@ -15,7 +15,7 @@ const mapper = (data) => {
 
   if (data.length === 0) {
     document.getElementById("product").innerHTML = "";
-    product.innerHTML = `
+    products.innerHTML = `
         <div class="msg">
             <img src="../img/product-is-empty-removebg-preview.png" alt="img" class="empty-img">
 
@@ -93,9 +93,15 @@ document
 document
   .getElementById("kids")
   .addEventListener("click", () => handleCategory("kids"));
+
+  
 // document
 //   .getElementById("electronics")
 //   .addEventListener("click", () => handleCategory("electronics"));
+
+
+
+
 
 // searching
 
@@ -111,7 +117,7 @@ const handleSearch = (e) => {
   mapper(temp);
 };
 
-document.getElementById("searching").addEventListener("submit", handleSearch);
+document.getElementById("searchProduct").addEventListener("click", handleSearch);
 
 
 // cart
